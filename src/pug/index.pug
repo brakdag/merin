@@ -49,13 +49,13 @@ html(lang='es')
                 // Masthead Heading
                 h1.masthead-heading.text-uppercase.mb-0 Reynaldo Merín
                 // Icon Divider
-                .divider-custom.divider-light
-                    .divider-custom-line
-                    .divider-custom-icon
-                        i.fas.fa-star
-                    .divider-custom-line
+                //.divider-custom.divider-light
+                //    .divider-custom-line
+                //    .divider-custom-icon
+                //        i.fas.fa-star
+                //    .divider-custom-line
                 // Masthead Subheading
-                p.masthead-subheading.font-weight-light.mb-0 Escuela Técnica en Electricidad
+                // p.masthead-subheading.font-weight-light.mb-0 Escuela Técnica en Electricidad
 
         // Portfolio Section
         section#portfolio.page-section.portfolio
@@ -142,13 +142,13 @@ html(lang='es')
         section#contact.page-section
             .container
                 // Contact Section Heading
-                h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Contact Me
+                h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Contacto
                 // Icon Divider
                 .divider-custom
                     .divider-custom-line
-                    .divider-custom-icon
-                        i.fas.fa-star
-                    .divider-custom-line
+                //    .divider-custom-icon
+                //        i.fas.fa-star
+                //    .divider-custom-line
                 // Contact Section Form
                 .row.justify-content-center
                     .col-lg-8.col-xl-7
@@ -161,79 +161,9 @@ html(lang='es')
                         // To make this form functional, sign up at
                         // https://startbootstrap.com/solution/contact-forms
                         // to get an API token!
-
-                        form#contactForm(data-sb-form-api-token='API_TOKEN')
-
-                            // Name input
-                            .form-floating.mb-3
-                                input#name.form-control(
-                                    type='text',
-                                    placeholder='Enter your name...',
-                                    data-sb-validations='required'
-                                )
-                                label(for='name') Full name
-                                .invalid-feedback(data-sb-feedback='name:required')
-                                    | A name is required.
-
-                            // Email address input
-                            .form-floating.mb-3
-                                input#email.form-control(
-                                    type='email',
-                                    placeholder='name@example.com',
-                                    data-sb-validations='required,email'
-                                )
-                                label(for='email') Email address
-                                .invalid-feedback(data-sb-feedback='email:required')
-                                    | An email is required.
-                                .invalid-feedback(data-sb-feedback='email:email')
-                                    | Email is not valid.
-
-                            // Phone number input
-                            .form-floating.mb-3
-                                input#phone.form-control(
-                                    type='tel',
-                                    placeholder='(123) 456-7890',
-                                    data-sb-validations='required'
-                                )
-                                label(for='phone') Phone number
-                                .invalid-feedback(data-sb-feedback='phone:required')
-                                    | A phone number is required.
-
-                            // Message input
-                            .form-floating.mb-3
-                                textarea#message.form-control(
-                                    type='text',
-                                    placeholder='Enter your message here...',
-                                    style='height: 10rem;',
-                                    data-sb-validations='required'
-                                )
-                                label(for='message') Message
-                                .invalid-feedback(data-sb-feedback='message:required')
-                                    | A message is required.
-
-                            // Submit success message
-                            //
-                            // This is what your users will see when the form
-                            // has successfully submitted
-
-                            #submitSuccessMessage.d-none
-                                .text-center.mb-3
-                                    .fw-bolder Form submission successful!
-                                    | To activate this form, sign up at
-                                    br
-                                    a(href='https://startbootstrap.com/solution/contact-forms') https://startbootstrap.com/solution/contact-forms
-
-                            // Submit error message
-                            //
-                            // This is what your users will see when there is
-                            // an error submitting the form
-
-                            #submitErrorMessage.d-none
-                                .text-center.text-danger.mb-3 Error sending message!
-
-                            // Submit Button
-                            button#submitButton.btn.btn-primary.btn-xl.disabled(type='submit') Send
-
+                        
+                        iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.890896791814!2d-68.31915063921433!3d-34.63219730888914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9679a93a8e922add%3A0xc95424173bfe7cf4!2sEscuela%204-124%20Reynaldo%20Mer%C3%ADn!5e0!3m2!1ses-419!2sar!4v1686746893979!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade")
+                        
         // Footer
         footer.footer.text-center
             .container
@@ -248,21 +178,21 @@ html(lang='es')
                     // Footer Social Icons
                     .col-lg-4.mb-5.mb-lg-0
                         h4.text-uppercase.mb-4 Redes sociales
-                        a.btn.btn-outline-light.btn-social.mx-1(href='#!')
+                        a.btn.btn-outline-light.btn-social.mx-1(href='https://www.facebook.com/Comunidad-Reynaldo-Merin-575021779836346')
                             i.fab.fa-fw.fa-facebook-f
-                        a.btn.btn-outline-light.btn-social.mx-1(href='#!')
-                            i.fab.fa-fw.fa-twitter
-                        a.btn.btn-outline-light.btn-social.mx-1(href='#!')
-                            i.fab.fa-fw.fa-linkedin-in
-                        a.btn.btn-outline-light.btn-social.mx-1(href='#!')
-                            i.fab.fa-fw.fa-dribbble
+                        a.btn.btn-outline-light.btn-social.mx-1(href='https://www.instagram.com/reynaldo_merin/')
+                            i.fab.fa-fw.fa-instagram
+                        a.btn.btn-outline-light.btn-social.mx-1(href='https://www.youtube.com/watch?v=G5y7DZFWh6A')
+                            i.fab.fa-fw.fa-youtube
                     // Footer About Text
                     .col-lg-4
                         h4.text-uppercase.mb-4 acerca de la escuela
                         p.lead.mb-0
-                            | Freelance is a free to use, MIT licensed Bootstrap theme created by 
-                            a(href='http://startbootstrap.com') Start Bootstrap
-                            | .
+                            | Teléfonos:
+                            br
+                            a(href='tel:+542604433178') 2604-433178 
+                            br
+                            a(href='tel:+542604842746') 2604-842746 
 
         // Copyright Section
         div.copyright.py-4.text-center.text-white
