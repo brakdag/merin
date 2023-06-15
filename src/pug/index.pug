@@ -24,9 +24,10 @@ html(lang='es')
         link(href='css/styles.css', rel='stylesheet')
 
     body#page-top
-
-        // Navigation
-        nav#mainNav.navbar.navbar-expand-lg.bg-secondary.text-uppercase.fixed-top
+        div#video-background(style="width: 100%;")
+            video(autoplay loop muted)
+                source(src="assets/video.mp4", type="video/mp4" )
+        nav#mainNav.navbar.navbar-expand-lg.bg-transparent.text-uppercase.fixed-top
             .container
                 a.navbar-brand(href='#page-top') Reynaldo Merín
                 button.navbar-toggler.text-uppercase.font-weight-bold.bg-primary.text-white.rounded(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
@@ -49,10 +50,10 @@ html(lang='es')
                                 | Contacto
 
         // Masthead
-        header.masthead.bg-primary.text-white.text-center
-            .container.d-flex.align-items-center.flex-column
+        header.masthead.bg-transparent.text-white.text-center
+              .container.d-flex.align-items-center.flex-column
                 // Masthead Avatar Image
-                img.img-fluid.mb-5(src='assets/img/4124.png', alt='...')
+                img.img-fluid.mb-5(src='assets/img/4124.png', alt='...',style='width: 50%;' )
                 // Masthead Heading
                 h1.masthead-heading.text-uppercase.mb-0 merin.edu.ar
                 // Icon Divider
@@ -64,8 +65,8 @@ html(lang='es')
                 // Masthead Subheading
                 p.masthead-subheading.font-weight-light.mb-0 Escuela Técnica N°4124.
 
-        // Portfolio Section
-        section#portfolio.page-section.portfolio
+        // Portfolio Section.bg-primary
+        section#portfolio.page-section.portfolio.bg-primary
             .container
                 // Portfolio Section Heading
                 h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Institucional
@@ -121,7 +122,7 @@ html(lang='es')
                             img.img-fluid(src='assets/img/portfolio/submarine.png', alt='...')
 
         // About Section
-        section#about.page-section.bg-primary.text-white.mb-0
+        section#about.page-section.bg-secondary.text-white.mb-0
             .container
                 // About Section Heading
                 h2.page-section-heading.text-center.text-uppercase.text-white Centro de Estudiantes Merín
@@ -149,7 +150,9 @@ html(lang='es')
         section#contact.page-section
             .container
                 // Contact Section Heading
-                h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Contacto
+                h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 
+                    i.fas.fa-envelope 
+                    | Contacto
                 // Icon Divider
                 .divider-custom
                     .divider-custom-line
@@ -185,9 +188,15 @@ html(lang='es')
                     .col-lg-4
                         h4.text-uppercase.mb-4 Telefonos
                         p.lead.mb-0
-                            a(href='tel:+542604433178') 2604-433178 
+                            a(href='tel:+542604433178')
+                                .divider-custom-icon 
+                                i.fas.fa-phone 
+                                | 2604-433178 
                             br
-                            a(href='tel:+542604842746') 2604-842746 
+                            a(href='tel:+542604842746')
+                                .divider-custom-icon
+                                i.fas.fa-phone 
+                                | 2604-842746 
 
         // Copyright Section
         div.copyright.py-4.text-center.text-white
