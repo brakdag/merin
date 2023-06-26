@@ -24,11 +24,12 @@ html(lang='es')
         link(href='css/styles.css', rel='stylesheet')
 
     body#page-top
-        div#video-background(style="width: 100%;")
-            video(autoplay loop muted)
-                source(src="assets/video.mp4", type="video/mp4" )
+        div#video-container(style="width:100%, height:100% ,overflow: hidden; align-items: center; justify-content: center;")
+            video#background-video(autoplay loop muted style="width: 1280px; height: 800px; position: absolute; left: 50%; transform: translateX(-50%);")
+                   source(src="assets/video.mp4", type="video/mp4")       
+            
         nav#mainNav.navbar.navbar-expand-lg.bg-transparent.text-uppercase.fixed-top
-            .container
+                .container
                 a.navbar-brand(href='#page-top') Reynaldo Merín
                 button.navbar-toggler.text-uppercase.font-weight-bold.bg-primary.text-white.rounded(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
                     | Menu 
@@ -51,9 +52,9 @@ html(lang='es')
 
         // Masthead
         header.masthead.bg-transparent.text-white.text-center
-              .container.d-flex.align-items-center.flex-column
+            .container.d-flex.align-items-center.flex-column
                 // Masthead Avatar Image
-                img.img-fluid.mb-5(src='assets/img/4124.png', alt='...',style='width: 50%;' )
+                img.img-fluid.mb-5(src='assets/img/4124.png', alt='...',style='width: 25%;' )
                 // Masthead Heading
                 h1.masthead-heading.text-uppercase.mb-0 merin.edu.ar
                 // Icon Divider
@@ -64,12 +65,12 @@ html(lang='es')
                 //    .divider-custom-line
                 // Masthead Subheading
                 p.masthead-subheading.font-weight-light.mb-0 Escuela Técnica N°4124.
-
+        
         // Portfolio Section.bg-primary
         section#portfolio.page-section.portfolio.bg-primary
             .container
                 // Portfolio Section Heading
-                h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Institucional
+                h2.page-section-heading.text-center.text-uppercase.text-white.mb-0 Institucional
                 // Icon Divider
                 .divider-custom
                     .divider-custom-line
@@ -150,7 +151,7 @@ html(lang='es')
         section#contact.page-section
             .container
                 // Contact Section Heading
-                h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 
+                h2.page-section-heading.text-center.text-uppercase.text-white.mb-0 
                     i.fas.fa-envelope 
                     | Contacto
                 // Icon Divider
