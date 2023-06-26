@@ -25,12 +25,15 @@ html(lang='es')
 
     body#page-top
         div#video-container(style="width:100%, height:100% ,overflow: hidden; align-items: center; justify-content: center;")
-            video#background-video(autoplay loop muted style="width: 1280px; height: 800px; position: absolute; left: 50%; transform: translateX(-50%);")
-                   source(src="assets/video.mp4", type="video/mp4")       
-            
+             video#background-video(autoplay loop muted style="width: 100%; height: auto; filter: grayscale(100%) sepia(50%) saturate(80%) hue-rotate(180deg);") 
+                source(src="assets/video.mp4", type="video/mp4")       
+             //img#overlay-image(src="assets/img/1112.png", style="position:absolute;top:0;left:0; width: 100px; height: 100px; object-fit: cover;")
+                   
         nav#mainNav.navbar.navbar-expand-lg.bg-transparent.text-uppercase.fixed-top
                 .container
                 a.navbar-brand(href='#page-top') Reynaldo Merín
+                            img(src='assets/img/1112.png', alt='Reynaldo Merín', style='width: 50px; height: 50px;')
+
                 button.navbar-toggler.text-uppercase.font-weight-bold.bg-primary.text-white.rounded(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
                     | Menu 
                     i.fas.fa-bars
@@ -50,22 +53,6 @@ html(lang='es')
                                 i.fas.fa-envelope
                                 | Contacto
 
-        // Masthead
-        header.masthead.bg-transparent.text-white.text-center
-            .container.d-flex.align-items-center.flex-column
-                // Masthead Avatar Image
-                img.img-fluid.mb-5(src='assets/img/4124.png', alt='...',style='width: 25%;' )
-                // Masthead Heading
-                h1.masthead-heading.text-uppercase.mb-0 merin.edu.ar
-                // Icon Divider
-                //.divider-custom.divider-light
-                //    .divider-custom-line
-                //    .divider-custom-icon
-                //        i.fas.fa-star
-                //    .divider-custom-line
-                // Masthead Subheading
-                p.masthead-subheading.font-weight-light.mb-0 Escuela Técnica N°4124.
-        
         // Portfolio Section.bg-primary
         section#portfolio.page-section.portfolio.bg-primary
             .container
@@ -86,42 +73,7 @@ html(lang='es')
                                 .portfolio-item-caption-content.text-center.text-white
                                     i.fas.fa-plus.fa-3x
                             img.img-fluid(src='assets/img/portfolio/biblioteca.jpg', alt='...')
-                    // Portfolio Item 2
-                    .col-md-6.col-lg-4.mb-5
-                        .portfolio-item.mx-auto(data-bs-toggle='modal', data-bs-target='#portfolioModal2')
-                            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-                                .portfolio-item-caption-content.text-center.text-white
-                                    i.fas.fa-plus.fa-3x
-                            img.img-fluid(src='assets/img/portfolio/cake.png', alt='...')
-                    // Portfolio Item 3
-                    .col-md-6.col-lg-4.mb-5
-                        .portfolio-item.mx-auto(data-bs-toggle='modal', data-bs-target='#portfolioModal3')
-                            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-                                .portfolio-item-caption-content.text-center.text-white
-                                    i.fas.fa-plus.fa-3x
-                            img.img-fluid(src='assets/img/portfolio/circus.png', alt='...')
-                    // Portfolio Item 4
-                    .col-md-6.col-lg-4.mb-5.mb-lg-0
-                        .portfolio-item.mx-auto(data-bs-toggle='modal', data-bs-target='#portfolioModal4')
-                            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-                                .portfolio-item-caption-content.text-center.text-white
-                                    i.fas.fa-plus.fa-3x
-                            img.img-fluid(src='assets/img/portfolio/game.png', alt='...')
-                    // Portfolio Item 5
-                    .col-md-6.col-lg-4.mb-5.mb-md-0
-                        .portfolio-item.mx-auto(data-bs-toggle='modal', data-bs-target='#portfolioModal5')
-                            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-                                .portfolio-item-caption-content.text-center.text-white
-                                    i.fas.fa-plus.fa-3x
-                            img.img-fluid(src='assets/img/portfolio/safe.png', alt='...')
-                    // Portfolio Item 6
-                    .col-md-6.col-lg-4
-                        .portfolio-item.mx-auto(data-bs-toggle='modal', data-bs-target='#portfolioModal6')
-                            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-                                .portfolio-item-caption-content.text-center.text-white
-                                    i.fas.fa-plus.fa-3x
-                            img.img-fluid(src='assets/img/portfolio/submarine.png', alt='...')
-
+                    
         // About Section
         section#about.page-section.bg-secondary.text-white.mb-0
             .container
@@ -137,21 +89,21 @@ html(lang='es')
                 .row
                     .col-lg-4.ms-auto
                         p.lead
-                            | Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.
+                            | Un centro de estudiantes en una escuela Reynaldo Merín es una organización conformada por estudiantes, elegidos por sus compañeros o mediante votación, que tiene como objetivo representar y promover los intereses y necesidades de los estudiantes dentro del ámbito escolar. El centro de estudiantes es un espacio democrático donde se fomenta la participación activa de los estudiantes en la toma de decisiones, la organización de eventos y la defensa de sus derechos..
                     .col-lg-4.me-auto
                         p.lead
-                            | You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!
+                            | Además, el centro de estudiantes puede servir como un canal de comunicación entre los estudiantes, los docentes, la dirección de la escuela y otros actores involucrados en la comunidad educativa. A través de diversas actividades, como debates, campañas, eventos culturales y deportivos, el centro de estudiantes busca promover el compañerismo, el liderazgo, la solidaridad y la formación cívica de los estudiantes, contribuyendo así al desarrollo integral de la comunidad estudiantil. 
                 // About Section Button
                 .text-center.mt-4
-                    a.btn.btn-xl.btn-outline-light(href='https://startbootstrap.com/theme/freelancer/')
-                        i.fas.fa-download.me-2
-                        | Free Download!
+                    a.btn.btn-xl.btn-outline-light(href='/index.html#CEM')
+                        i.fas.fa-link.me-2
+                        | Ir a CEM!
 
         // Contact Section
         section#contact.page-section
             .container
                 // Contact Section Heading
-                h2.page-section-heading.text-center.text-uppercase.text-white.mb-0 
+                h2.page-section-heading.text-center.text-uppercase.text-black.mb-0 
                     i.fas.fa-envelope 
                     | Contacto
                 // Icon Divider
@@ -189,12 +141,12 @@ html(lang='es')
                     .col-lg-4
                         h4.text-uppercase.mb-4 Telefonos
                         p.lead.mb-0
-                            a(href='tel:+542604433178')
+                            a(href='tel:+542604433178',style='color: white;')
                                 .divider-custom-icon 
                                 i.fas.fa-phone 
                                 | 2604-433178 
                             br
-                            a(href='tel:+542604842746')
+                            a(href='tel:+542604842746',style='color: white;')
                                 .divider-custom-icon
                                 i.fas.fa-phone 
                                 | 2604-842746 
