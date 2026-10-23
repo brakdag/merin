@@ -8,6 +8,8 @@ Modernizar la web de la escuela técnica de San Rafael, Mendoza, manteniendo el
 video de fondo y la información principal, con especial atención a la velocidad.
 El sitio está alojado en GitHub Pages y usa el dominio merin.edu.ar.
 El usuario confirmó que el Instagram de la escuela es **@escuelareynaldomerin**.
+La publicación debe mantenerse en **master → / (root)**; el usuario no puede
+cambiarla a `/docs`.
 
 ## Estado
 
@@ -27,17 +29,20 @@ El usuario confirmó que el Instagram de la escuela es **@escuelareynaldomerin**
 - Se corrigieron un `docType` inválido que provocaba modo quirks, cortes a 320 px,
   contraste, nombre accesible del enlace de inicio y texto alternativo de la foto
   del taller. El diseño sin JavaScript usa `noscript` para evitar saltos de carga.
-- `npm run build:pages` genera `dist/` y actualiza `docs/`, incluyendo dominio,
-  sitemap y robots.txt. Los originales se conservan en `src/assets/` y los archivos
-  antiguos de `docs/assets/` siguen disponibles. `dist/` incluye solo los recursos
-  actuales; por eso Git muestra eliminaciones de recursos antiguos en esa carpeta.
-- Cambios locales preparados; no se hizo commit, push ni publicación.
+- `npm run build:pages` genera `dist/` y copia `index.html`, `css/`, `js/` y `assets/`
+  a la raíz del repositorio para publicar desde **master → / (root)**. `CNAME`,
+  sitemap y robots.txt permanecen en la raíz. `.nojekyll` permite servir los archivos
+  estáticos directamente. Las fuentes se conservan en `src/` y `docs/` queda como
+  copia anterior, sin actualizarse ni usarse para publicar.
+- La adaptación a publicación desde la raíz está preparada localmente; el agente
+  no hizo commit, push ni cambios en la configuración remota de GitHub.
 
 ## Verificaciones realizadas
 
 - Compilación `npm run build:pages` y revisión de sintaxis JavaScript.
 - Doctype válido, IDs únicos, anclas existentes, archivos locales presentes y
-  equivalencia de todos los archivos generados de `dist/` con sus copias en `docs/`.
+  equivalencia de los 12 archivos generados de `dist/` con sus copias en la raíz.
+  Se verificaron también `.nojekyll`, el dominio en `CNAME` y los enlaces de Instagram.
 - Navegador a 320, 375, 390, 768, 1024 y 1440 px; revisión visual de móvil y escritorio.
 - Menú móvil, Escape con devolución de foco, mapa bajo demanda, reproducción manual,
   elección de video móvil/escritorio, pausa fuera de pantalla y persistencia de la

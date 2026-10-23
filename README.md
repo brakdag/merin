@@ -22,15 +22,26 @@ npm start
 npm run build:pages
 ```
 
-Este comando compila en `dist/` y copia el resultado a `docs/`, incluyendo `CNAME`,
-`sitemap.xml` y `robots.txt`. No publica ni hace un commit. Para publicar, revisar los
-cambios y subirlos al repositorio cuya configuración de Pages sirve la carpeta
-`/docs` de la rama correspondiente. No editar el HTML o CSS generado: la próxima
-compilación lo reemplaza.
+Este comando compila en `dist/` y copia `index.html`, `css/`, `js/` y `assets/` a la
+**raíz del repositorio**. `CNAME`, `sitemap.xml` y `robots.txt` ya están en esa raíz;
+también genera `.nojekyll` para servir el sitio estático directamente.
+No publica ni hace un commit. Para publicar, revisar los cambios y subirlos a
+`master`, con GitHub Pages configurado en **master → / (root)**. El dominio sigue
+siendo `merin.edu.ar`. No editar el HTML o CSS generado: la próxima compilación
+lo reemplaza.
 
-Los archivos antiguos de `docs/assets/` se conservan para mantener sus URLs.
-La compilación nueva solo incluye los seis archivos multimedia que usa la página;
-los originales siguen disponibles en `src/assets/`.
+`src/` conserva las fuentes y `dist/` sirve para la vista previa. La carpeta `docs/`
+queda como copia anterior y ya no se actualiza ni se usa como origen de publicación.
+La compilación incluye los seis archivos multimedia que usa la página; los
+originales siguen disponibles en `src/assets/`.
+
+Para revisar exactamente la versión que se publica desde la raíz:
+
+```sh
+python3 -m http.server 4174 --bind 127.0.0.1
+```
+
+Abrir http://127.0.0.1:4174/.
 
 ## Carga y accesibilidad
 
