@@ -1,3 +1,52 @@
-# Escuela Reynaldo Merín.
+# Escuela Técnica Reynaldo Merín
 
-## Pagina en contrucción.
+Sitio institucional de la Escuela N.º 4-124 de San Rafael, Mendoza.
+Dominio: https://merin.edu.ar/ (GitHub Pages).
+
+## Desarrollo
+
+Requiere Node.js 22 o posterior y npm.
+
+```sh
+npm ci
+npm start
+```
+
+`src/pug/index.pug` contiene la página, `src/scss/styles.scss` los estilos y
+`src/js/scripts.js` el comportamiento. Las fotos y los videos están en `src/assets/`.
+`npm start` genera `dist/` y abre una vista previa con recarga automática.
+
+## Preparar GitHub Pages
+
+```sh
+npm run build:pages
+```
+
+Este comando compila en `dist/` y copia el resultado a `docs/`, incluyendo `CNAME`,
+`sitemap.xml` y `robots.txt`. No publica ni hace un commit. Para publicar, revisar los
+cambios y subirlos al repositorio cuya configuración de Pages sirve la carpeta
+`/docs` de la rama correspondiente. No editar el HTML o CSS generado: la próxima
+compilación lo reemplaza.
+
+Los archivos antiguos de `docs/assets/` se conservan para mantener sus URLs.
+La compilación nueva solo incluye los seis archivos multimedia que usa la página;
+los originales siguen disponibles en `src/assets/`.
+
+## Carga y accesibilidad
+
+- Fuentes del sistema, iconos SVG y componentes sin dependencias externas de interfaz.
+- Imagen WebP de portada prioritaria; el video se inicia después de la carga y de
+  una oportunidad de pintado. Se descarga una sola versión: móvil o escritorio.
+- Sin reproducción automática cuando se solicita movimiento reducido, ahorro de
+  datos o la conexión indica 2G. El botón permite iniciar el video voluntariamente.
+- El video se pausa al salir de la portada o al ocultar la pestaña, y respeta una
+  pausa solicitada por el visitante.
+- Fotografías de las secciones con carga diferida. Google Maps se inserta solo al
+  pulsar «Ver mapa interactivo»; también hay enlaces directos para llegar.
+- Navegación con teclado, menú móvil, enlace para saltar al contenido y preguntas
+  frecuentes nativas. El contenido y los enlaces funcionan sin JavaScript.
+
+## Continuar el trabajo
+
+El estado de la revisión y las verificaciones está en [CONTINUIDAD.md](CONTINUIDAD.md).
+Este archivo permite retomar el proyecto aunque no esté disponible el chat anterior.

@@ -1,179 +1,248 @@
+mixin icon(name)
+    svg.icon(viewBox='0 0 24 24', fill='none', stroke='currentColor', stroke-width='1.7', stroke-linecap='round', stroke-linejoin='round', aria-hidden='true')
+        if name === 'arrow'
+            path(d='M4 12h15M13 5l7 7-7 7')
+        else if name === 'external'
+            path(d='M7 17 17 7M6 7h11v11')
+        else if name === 'book'
+            path(d='M12 6c-3-2-6-2-10-1v15c4-1 7-1 10 1 3-2 6-2 10-1V5c-4-1-7-1-10 1Zm0 0v15')
+        else if name === 'users'
+            circle(cx='9', cy='7', r='3')
+            path(d='M3 21v-3a6 6 0 0 1 12 0v3M16 4a3 3 0 0 1 0 6M18 13a5 5 0 0 1 3 5v3')
+        else if name === 'pin'
+            path(d='M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z')
+            circle(cx='12', cy='10', r='2.5')
+        else if name === 'phone'
+            path(d='m5 3 4 4-2 3a16 16 0 0 0 7 7l3-2 4 4-2 3C10 23 1 14 2 5Z')
+        else if name === 'tool'
+            path(d='m14 7 3 3 5-5a7 7 0 0 1-9 9l-7 7a3 3 0 0 1-4-4l7-7a7 7 0 0 1 9-9Z')
+        else if name === 'chevron'
+            path(d='m6 9 6 6 6-6')
+
 doctype html
-html(lang='es')
-
+html(lang='es-AR')
     head
-
         meta(charset='utf-8')
-        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-        meta(name='description', content='')
-        meta(name='author', content='')
-
-        title Escuela N°4124 - Reynaldo Merín
-
-        // Favicon
-        link(rel='icon', type='image/x-icon', href='assets/4124.ico')
-
-        // Font Awesome icons (free version)
-        script(src='https://use.fontawesome.com/releases/v6.3.0/js/all.js', crossorigin='anonymous')
-
-        // Google fonts
-        link(href='https://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
-        link(href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic', rel='stylesheet', type='text/css')
-
-        // Core theme CSS (includes Bootstrap)
-        link(href='css/styles.css', rel='stylesheet')
-
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        meta(name='description', content='Escuela Técnica N.º 4-124 Reynaldo Merín, en San Rafael, Mendoza. Conocé nuestra comunidad, accedé a la biblioteca digital y encontrá nuestros datos de contacto.')
+        meta(name='theme-color', content='#202a28')
+        meta(property='og:type', content='website')
+        meta(property='og:locale', content='es_AR')
+        meta(property='og:title', content='Escuela Técnica Reynaldo Merín')
+        meta(property='og:description', content='Aprender, hacer y transformar. Conocé nuestra escuela en San Rafael, Mendoza.')
+        meta(property='og:url', content='https://merin.edu.ar/')
+        meta(property='og:image', content='https://merin.edu.ar/assets/img/escuela-poster.webp')
+        title Escuela Técnica Reynaldo Merín | San Rafael, Mendoza
+        link(rel='canonical', href='https://merin.edu.ar/')
+        link(rel='icon', type='image/webp', href='assets/img/escudo.webp')
+        link(rel='preload', as='image', href='assets/img/escuela-poster.webp', fetchpriority='high')
+        link(rel='stylesheet', href='css/styles.css')
+        noscript
+            style.
+                .site-header { position: relative; top: auto; padding-block: 16px; background: var(--ink); }
+        script(src='js/scripts.js', defer)
     body#page-top
-        div#video-container(style="width:100%, height:100% ,overflow: hidden; align-items: center; justify-content: center;")
-             video#background-video(autoplay loop muted style="width: 100%; height: auto; filter: grayscale(100%) sepia(50%) saturate(80%) hue-rotate(180deg);") 
-                source(src="assets/video.mp4", type="video/mp4")       
-             //img#overlay-image(src="assets/img/1112.png", style="position:absolute;top:0;left:0; width: 100px; height: 100px; object-fit: cover;")
-                   
-        nav#mainNav.navbar.navbar-expand-lg.bg-transparent.text-uppercase.fixed-top
+        a.skip-link(href='#contenido') Saltar al contenido
+        header.site-header
+            nav.nav.container(aria-label='Navegación principal')
+                a.brand(href='#page-top')
+                    img(src='assets/img/escudo.webp', width='52', height='52', alt='')
+                    span.brand-text
+                        strong Reynaldo Merín
+                        small ESCUELA TÉCNICA N.º 4-124
+                button.menu-toggle(type='button', aria-expanded='false', aria-controls='main-menu', hidden)
+                    span Menú
+                    span.menu-bars(aria-hidden='true')
+                #main-menu.nav-links
+                    a(href='#portfolio') La escuela
+                    a(href='#biblioteca') Biblioteca
+                    a(href='#about') Estudiantes
+                    a.nav-contact(href='#contact')
+                        | Contactanos
+                        +icon('external')
+        main#contenido(tabindex='-1')
+            section.hero(aria-labelledby='hero-title')
+                img.hero-poster(src='assets/img/escuela-poster.webp', width='1280', height='720', alt='', fetchpriority='high')
+                video#background-video.hero-video(loop, muted, playsinline, preload='none', aria-hidden='true', tabindex='-1', data-desktop='assets/escuela-desktop.mp4', data-mobile='assets/escuela-mobile.mp4')
+                .hero-shade
+                .hero-content.container
+                    p.eyebrow.hero-eyebrow
+                        span.status-dot(aria-hidden='true')
+                        | San Rafael, Mendoza
+                    h1#hero-title Aprender.
+                        br
+                        | Hacer.
+                        br
+                        em Transformar.
+                    p.hero-description Somos la Escuela Técnica Reynaldo Merín. Un lugar para descubrir lo que podés hacer y construir lo que viene.
+                    a.button.button-yellow(href='#portfolio')
+                        | Conocé nuestra escuela
+                        +icon('arrow')
+                .hero-bottom.container
+                    a.hero-scroll(href='#portfolio')
+                        span.scroll-line(aria-hidden='true')
+                        | Una escuela, muchas posibilidades
+                    button#video-toggle.video-toggle(type='button', hidden)
+                        span.video-symbol(aria-hidden='true') ▶
+                        span.video-label Reproducir video
+            .quick-links.container(aria-label='Accesos rápidos')
+                a.quick-link(href='#biblioteca')
+                    +icon('book')
+                    span
+                        small PARA SEGUIR APRENDIENDO
+                        strong Biblioteca digital
+                    +icon('external')
+                a.quick-link(href='#about')
+                    +icon('users')
+                    span
+                        small TU VOZ EN LA ESCUELA
+                        strong Centro de estudiantes
+                    +icon('arrow')
+                a.quick-link(href='#contact')
+                    +icon('pin')
+                    span
+                        small ESTAMOS CERCA
+                        strong Encontranos
+                    +icon('arrow')
+            section#portfolio.section.school-section
                 .container
-                a.navbar-brand(href='#page-top') Reynaldo Merín
-                            img(src='assets/img/1112.png', alt='Reynaldo Merín', style='width: 50px; height: 50px;')
-
-                button.navbar-toggler.text-uppercase.font-weight-bold.bg-primary.text-white.rounded(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
-                    | Menu 
-                    i.fas.fa-bars
-                #navbarResponsive.collapse.navbar-collapse
-                    ul.navbar-nav.ms-auto
-                        li.nav-item.mx-0.mx-lg-1  
-                            a.nav-link.py-3.px-0.px-lg-3.rounded(href='#portfolio') 
-                                i.fas.fa-landmark 
-                                | Institucional
-                            
-                        li.nav-item.mx-0.mx-lg-1
-                            a.nav-link.py-3.px-0.px-lg-3.rounded(href='#about') 
-                                 i.fas.fa-users
-                                 | CEM
-                        li.nav-item.mx-0.mx-lg-1
-                            a.nav-link.py-3.px-0.px-lg-3.rounded(href='#contact') 
-                                i.fas.fa-envelope
-                                | Contacto
-
-        // Portfolio Section.bg-primary
-        section#portfolio.page-section.portfolio.bg-primary
-            .container
-                // Portfolio Section Heading
-                h2.page-section-heading.text-center.text-uppercase.text-white.mb-0 Institucional
-                // Icon Divider
-                .divider-custom
-                    .divider-custom-line
-                    .divider-custom-icon
-                        i.fas.fa-landmark
-                    .divider-custom-line
-                // Portfolio Grid Items
-                .row.justify-content-center
-                    // Portfolio Item 1
-                    .col-md-6.col-lg-4.mb-5
-                        .portfolio-item.mx-auto(data-bs-toggle='modal', data-bs-target='#portfolioModal1')
-                            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-                                .portfolio-item-caption-content.text-center.text-white
-                                    i.fas.fa-plus.fa-3x
-                            img.img-fluid(src='assets/img/portfolio/biblioteca.jpg', alt='...')
-                    
-        // About Section
-        section#about.page-section.bg-secondary.text-white.mb-0
-            .container
-                // About Section Heading
-                h2.page-section-heading.text-center.text-uppercase.text-white Centro de Estudiantes Merín
-                // Icon Divider
-                .divider-custom.divider-light
-                    .divider-custom-line
-                    .divider-custom-icon
-                        i.fas.fa-users
-                    .divider-custom-line
-                // About Section Content
-                .row
-                    .col-lg-4.ms-auto
-                        p.lead
-                            | Un centro de estudiantes en una escuela Reynaldo Merín es una organización conformada por estudiantes, elegidos por sus compañeros o mediante votación, que tiene como objetivo representar y promover los intereses y necesidades de los estudiantes dentro del ámbito escolar. El centro de estudiantes es un espacio democrático donde se fomenta la participación activa de los estudiantes en la toma de decisiones, la organización de eventos y la defensa de sus derechos..
-                    .col-lg-4.me-auto
-                        p.lead
-                            | Además, el centro de estudiantes puede servir como un canal de comunicación entre los estudiantes, los docentes, la dirección de la escuela y otros actores involucrados en la comunidad educativa. A través de diversas actividades, como debates, campañas, eventos culturales y deportivos, el centro de estudiantes busca promover el compañerismo, el liderazgo, la solidaridad y la formación cívica de los estudiantes, contribuyendo así al desarrollo integral de la comunidad estudiantil. 
-                // About Section Button
-                .text-center.mt-4
-                    a.btn.btn-xl.btn-outline-light(href='/index.html#CEM')
-                        i.fas.fa-link.me-2
-                        | Ir a CEM!
-
-        // Contact Section
-        section#contact.page-section
-            .container
-                // Contact Section Heading
-                h2.page-section-heading.text-center.text-uppercase.text-black.mb-0 
-                    i.fas.fa-envelope 
-                    | Contacto
-                // Icon Divider
-                .divider-custom
-                    .divider-custom-line
-                //    .divider-custom-icon
-                //        i.fas.fa-star
-                //    .divider-custom-line
-                // Contact Section Form
-                .row.justify-content-center
-                    .col-12
-                    iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.890896791814!2d-68.31915063921433!3d-34.63219730888914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9679a93a8e922add%3A0xc95424173bfe7cf4!2sEscuela%204-124%20Reynaldo%20Mer%C3%ADn!5e0!3m2!1ses-419!2sar!4v1686746893979!5m2!1ses-419!2sar" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade")
-                        
-        // Footer
-        footer.footer.text-center
-            .container
-                .row
-                    // Footer Location
-                    .col-lg-4.mb-5.mb-lg-0
-                        h4.text-uppercase.mb-4 Ubicación
-                        p.lead.mb-0
-                            | Alberdi 1270 San Rafael
+                    .section-heading
+                        div
+                            p.eyebrow 01 / NUESTRA ESCUELA
+                            h2 El futuro se construye
+                                br
+                                em aprendiendo.
+                        p.section-intro Somos una comunidad educativa de San Rafael. Creemos en el valor de aprender haciendo, compartir conocimientos y crecer junto a otros.
+                    .values-grid
+                        article.value
+                            span.value-icon
+                                +icon('tool')
+                            h3 Aprender haciendo
+                            p El aula y el taller se encuentran. La formación técnica conecta los conocimientos con la práctica y los desafíos del mundo que nos rodea.
+                        article.value
+                            span.value-icon
+                                +icon('users')
+                            h3 Crecer en comunidad
+                            p Estudiantes, docentes y familias forman parte de la escuela. Un espacio de encuentro, participación y construcción compartida.
+                        article.value
+                            span.value-icon
+                                +icon('book')
+                            h3 Abrir nuevas puertas
+                            p La lectura, la curiosidad y el intercambio de ideas nos ayudan a desarrollar una mirada propia y seguir aprendiendo.
+            section#biblioteca.section.library-section(aria-labelledby='library-title')
+                .container.library-grid
+                    .library-image
+                        img(src='assets/img/biblioteca.webp', alt='Estantes y libros de la biblioteca escolar', width='640', height='426', loading='lazy', decoding='async')
+                        span.image-label Un mundo por descubrir
+                    .library-content
+                        p.eyebrow 02 / BIBLIOTECA DIGITAL
+                        h2#library-title Tu próxima idea
                             br
-                            | Mendoza Argentina, CP 5600
-                    // Footer Social Icons
-                    .col-lg-4.mb-5.mb-lg-0
-                        h4.text-uppercase.mb-4 Redes sociales
-                        a.btn.btn-outline-light.btn-social.mx-1(href='https://www.facebook.com/Comunidad-Reynaldo-Merin-575021779836346')
-                            i.fab.fa-fw.fa-facebook-f
-                        a.btn.btn-outline-light.btn-social.mx-1(href='https://www.instagram.com/reynaldo_merin/')
-                            i.fab.fa-fw.fa-instagram
-                        a.btn.btn-outline-light.btn-social.mx-1(href='https://www.youtube.com/watch?v=G5y7DZFWh6A')
-                            i.fab.fa-fw.fa-youtube
-                    // Footer About Text
-                    .col-lg-4
-                        h4.text-uppercase.mb-4 Telefonos
-                        p.lead.mb-0
-                            a(href='tel:+542604433178',style='color: white;')
-                                .divider-custom-icon 
-                                i.fas.fa-phone 
-                                | 2604-433178 
+                            em empieza acá.
+                        p Un espacio para leer, investigar y encontrar nuevas preguntas. Accedé a la biblioteca digital de la escuela y acompañá tu aprendizaje dentro y fuera del aula.
+                        a.button.button-dark(href='https://sites.google.com/view/bibliotecaescuelareynaldomern/biblioteca-digital', target='_blank', rel='noopener noreferrer')
+                            | Explorar la biblioteca
+                            +icon('external')
+                            span.sr-only (abre en una pestaña nueva)
+                        span.link-note Recursos para acompañar tus clases.
+            section#about.section.students-section
+                span#CEM.anchor-alias(aria-hidden='true')
+                .container.students-grid
+                    .students-content
+                        p.eyebrow 03 / CENTRO DE ESTUDIANTES MERÍN
+                        h2 La escuela también
                             br
-                            a(href='tel:+542604842746',style='color: white;')
-                                .divider-custom-icon
-                                i.fas.fa-phone 
-                                | 2604-842746 
-
-        // Copyright Section
-        div.copyright.py-4.text-center.text-white
-            .container
-                small Copyright &copy; Centro de Estudiantes Merín 2023 powered by 
-                    a(href='https://www.icdsoft.com',style='color: white;') icdsoft
-
-        // Portfolio Modals
-        include includes/portfolio-modal-1.pug
-        include includes/portfolio-modal-2.pug
-        include includes/portfolio-modal-3.pug
-        include includes/portfolio-modal-4.pug
-        include includes/portfolio-modal-5.pug
-        include includes/portfolio-modal-6.pug
-
-        // Bootstrap core JS
-        script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js')
-
-        // Core theme JS
-        script(src='js/scripts.js')
-
-        // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-        // * *                               SB Forms JS                               * *
-        // * * Activate your form at https://startbootstrap.com/solution/contact-forms * *
-        // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-        script(src='https://cdn.startbootstrap.com/sb-forms-latest.js')
+                            em se hace con tu voz.
+                        p El CEM es el espacio de representación y participación de los estudiantes. Un puente para compartir ideas, impulsar iniciativas y construir juntos la vida escolar.
+                        ul.student-topics
+                            li
+                                span 01
+                                | Participación y diálogo
+                            li
+                                span 02
+                                | Propuestas y proyectos compartidos
+                            li
+                                span 03
+                                | Compañerismo y solidaridad
+                        a.text-link(href='https://www.instagram.com/escuelareynaldomerin/', target='_blank', rel='noopener noreferrer')
+                            | Seguí la vida de la escuela
+                            +icon('external')
+                            span.sr-only en Instagram (abre en una pestaña nueva)
+                    figure.students-image
+                        img(src='assets/img/comunidad.webp', alt='Manos soldando componentes electrónicos durante una práctica de taller', width='960', height='540', loading='lazy', decoding='async')
+                        figcaption Más que un lugar para estudiar. Un lugar para crecer.
+            section#contact.section.contact-section
+                .container
+                    .section-heading
+                        div
+                            p.eyebrow 04 / CONTACTO
+                            h2 Hablemos.
+                        p.section-intro ¿Querés conocer más sobre la escuela o hacer una consulta? Comunicate con nosotros o acercate a visitarnos.
+                    .contact-grid
+                        .contact-details
+                            .contact-item
+                                +icon('pin')
+                                div
+                                    h3 Vení a conocernos
+                                    address Av. Alberdi 1270, San Rafael
+                                        br
+                                        | Mendoza, Argentina · CP 5600
+                                    a.text-link(href='https://www.google.com/maps/dir/?api=1&destination=Escuela+4-124+Reynaldo+Merin+Alberdi+1270+San+Rafael', target='_blank', rel='noopener noreferrer')
+                                        | Cómo llegar
+                                        +icon('external')
+                                        span.sr-only (abre Google Maps en una pestaña nueva)
+                            .contact-item
+                                +icon('phone')
+                                div
+                                    h3 Llamanos
+                                    a.phone-link(href='tel:+542604433178') 2604 433178
+                                    a.phone-link(href='tel:+542604842746') 2604 842746
+                            .social-links(aria-label='Redes de la escuela')
+                                a(href='https://www.facebook.com/Comunidad-Reynaldo-Merin-575021779836346', target='_blank', rel='noopener noreferrer') Facebook ↗
+                                    span.sr-only (abre en una pestaña nueva)
+                                a(href='https://www.instagram.com/escuelareynaldomerin/', target='_blank', rel='noopener noreferrer') Instagram · @escuelareynaldomerin ↗
+                                    span.sr-only (abre en una pestaña nueva)
+                                a(href='https://www.youtube.com/watch?v=G5y7DZFWh6A', target='_blank', rel='noopener noreferrer') YouTube ↗
+                                    span.sr-only (abre en una pestaña nueva)
+                        .map-panel#map-panel
+                            .map-pattern(aria-hidden='true')
+                            .map-placeholder
+                                span.map-pin
+                                    +icon('pin')
+                                strong Nos encontrás en San Rafael
+                                p Av. Alberdi 1270 · Mendoza
+                                button#load-map.button.button-dark(type='button', hidden, data-src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.890896791814!2d-68.31915063921433!3d-34.63219730888914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9679a93a8e922add%3A0xc95424173bfe7cf4!2sEscuela%204-124%20Reynaldo%20Mer%C3%ADn!5e0!3m2!1ses-419!2sar!4v1686746893979!5m2!1ses-419!2sar')
+                                    | Ver mapa interactivo
+                                    +icon('external')
+                                a.map-fallback(href='https://www.google.com/maps/search/?api=1&query=Escuela+4-124+Reynaldo+Merin+San+Rafael', target='_blank', rel='noopener noreferrer') Abrir en Google Maps ↗
+                                    span.sr-only (abre en una pestaña nueva)
+                            p#map-status.sr-only(role='status')
+                    .faq
+                        h3 Algunas consultas frecuentes
+                        details
+                            summary
+                                | ¿Dónde consulto por inscripciones y documentación?
+                                +icon('chevron')
+                            p Comunicate con la escuela a los teléfonos publicados o acercate a Av. Alberdi 1270. Allí podrás consultar los requisitos, las fechas y la disponibilidad actualizados.
+                        details
+                            summary
+                                | ¿Cómo accedo a la biblioteca digital?
+                                +icon('chevron')
+                            p
+                                = 'Desde el botón “Explorar la biblioteca” de esta página. Se abrirá el sitio de la '
+                                a(href='https://sites.google.com/view/bibliotecaescuelareynaldomern/biblioteca-digital', target='_blank', rel='noopener noreferrer') biblioteca digital en una pestaña nueva
+                                | , donde podés consultar sus recursos.
+        footer.site-footer
+            .container.footer-top
+                a.brand.footer-brand(href='#page-top')
+                    img(src='assets/img/escudo.webp', width='48', height='48', alt='', loading='lazy')
+                    span.brand-text
+                        strong Reynaldo Merín
+                        small ESCUELA TÉCNICA N.º 4-124
+                p Aprender hoy. Construir el mañana.
+                a.footer-top-link(href='#page-top') Volver arriba ↑
+            .container.footer-bottom
+                small= '© '
+                    span#year 2026
+                    |  Escuela Reynaldo Merín · San Rafael, Mendoza
+                small Hecho para nuestra comunidad.

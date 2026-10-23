@@ -14,6 +14,7 @@ module.exports = function renderSCSS() {
     
     const results = sass.renderSync({
         data: entryPoint,
+        outputStyle: 'compressed',
         includePaths: [
             upath.resolve(upath.dirname(__filename), '../node_modules')
         ],
